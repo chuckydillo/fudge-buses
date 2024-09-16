@@ -1,7 +1,7 @@
 ---
 name: 'Back-end: '
 about: Back-end tasks
-title: ''
+title: 'Back-end: '
 labels: ''
 assignees: ''
 

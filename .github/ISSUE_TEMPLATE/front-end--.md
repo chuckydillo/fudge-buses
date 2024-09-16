@@ -1,7 +1,7 @@
 ---
 name: 'Front-end: '
 about: Front-end tasks
-title: ''
+title: 'Front-end: '
 labels: ''
 assignees: ''
 
