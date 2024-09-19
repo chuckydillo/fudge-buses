@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     if (userNavContainer) {
-        fetch('pages/navbar-guest.html')
+        fetch('navbar-user.html')
         .then(response => response.text())
         .then(data => {
             indexNavContainer.innerHTML = data;
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (guestNavContainer) {
-        fetch('pages/navbar-user.html')
+        fetch('navbar-guest.html')
         .then(response => response.text())
         .then(data => {
             navContainer.innerHTML = data;
