@@ -8,19 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     if (userNavContainer) {
-        fetch('navbar-user.html')
+        fetch('/pages/navbar-user.html')
         .then(response => response.text())
         .then(data => {
-            indexNavContainer.innerHTML = data;
+            userNavContainer.innerHTML = data;
         })
         .catch(error => console.error('Error loading the navbar:', error));
     }
 
     if (guestNavContainer) {
-        fetch('navbar-guest.html')
+        fetch('/pages/navbar-guest.html')
         .then(response => response.text())
         .then(data => {
-            navContainer.innerHTML = data;
+            guestNavContainer.innerHTML = data;
         })
         .catch(error => console.error('Error loading the navbar:', error));
     }
