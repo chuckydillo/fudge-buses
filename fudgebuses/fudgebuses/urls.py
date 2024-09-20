@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from fudgebuses import views as test
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("fudgebuses/", fudgedb_views.test, name='fudgebuses'),
 ]
