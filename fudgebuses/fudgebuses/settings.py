@@ -23,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%z%i40=-*z^$^$4g@m@+c2f=u^xv7)dj2)0(@rp34di7f^ydu#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'https://8000-chuckydillo-fudgebuses-tzv3dzdbhuk.ws.codeinstitute-ide.net'
+    'https://fudgebuses-2818f2a44822.herokuapp.com'
     ]
 CSRF_TRUSTED_ORIGINS = [
     'https://*.codeinstitute-ide.net',
