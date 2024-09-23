@@ -92,8 +92,9 @@ WSGI_APPLICATION = 'fudgebuses.wsgi.application'
 #}
 
 DATABASES = {
-   'default': dj_database_url.parse(os.environ.get("postgres://uruh4rfur5p:ekISuyj48TBb@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/affix_skies_sharp_149753"))
+   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
 
 
 
