@@ -20,13 +20,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y+64q4nvzy-^_c7zj7*&#@ig+6a$=txp1i$_g+sfm)j38ulw_l'
+SECRET_KEY = 'django-insecure-3dy+=*_tfr52w(+wnb$x@1$jyws(l1@dbfe=)v5!k*s0cv)gpu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "8000-chuckydillo-fudgebuses-ch6b2s6etz8.ws.codeinstitute-ide.net",
+    "https://fudgebuses-2818f2a44822.herokuapp.com",
+]
 
+CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
 
 # Application definition
 
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fudge',
 ]
 
 MIDDLEWARE = [
