@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
+
+if os.path.isfile("env.py"):
+   import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%z%i40=-*z^$^$4g@m@+c2f=u^xv7)dj2)0(@rp34di7f^ydu#'
+SECRET_KEY = os.environ.get(')rx4o#$=b_j_f&0a7_w&rw7g#r*a*^^mre8le=*bvdwcnka_hg')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -79,12 +84,17 @@ WSGI_APPLICATION = 'fudgebuses.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': dj_database_url.parse(os.environ.get("postgres://uruh4rfur5p:ekISuyj48TBb@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/affix_skies_sharp_149753"))
 }
+
 
 
 # Password validation
@@ -127,3 +137,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
