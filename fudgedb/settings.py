@@ -34,7 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "8000-chuckydillo-fudgebuses-ch6b2s6etz8.ws.codeinstitute-ide.net",
-    "https://fudgebuses-2818f2a44822.herokuapp.com",
+    "fudgebuses-2818f2a44822.herokuapp.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
