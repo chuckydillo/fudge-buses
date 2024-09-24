@@ -11,16 +11,16 @@
     <div><!--Landing page guest menu-->
         <ul class="" >
             <li>
-                <a class="" href="pages/create-account.html"><span>Login</span></a>
+                <a class="" href="{% url 'login' %}"><span>Login</span></a>
             </li>
             <li>
-                <a class="" href="pages/login.html"><span>Create Account</span></a>
+                <a class="" href="{% url 'register' %}"><span>Create Account</span></a>
             </li>
             <li>
                 <a class="" href="pages/about.html"><span>About</span></a>
             </li>
         </ul>
     </div>
-    
+    <a href="{% url 'register' %}">Register</a>
 </body>
 </html>
