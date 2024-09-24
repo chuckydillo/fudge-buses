@@ -28,5 +28,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('fudge.urls')),  # Includes all URLs from the fudge app
+    path('', include('fudge.urls'), name='home'),
+
 ]
