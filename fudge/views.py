@@ -1,12 +1,10 @@
-#from django.shortcuts import render, redirect
 # Create your views here.
 
-#from django.views.generic import TemplateView
-#from django.contrib.auth import login
-#from .forms import CustomUserCreationForm
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
+from django.contrib.auth import login
+from .forms import CustomUserCreationForm
 
 class HomePage(TemplateView):
     """
