@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth import login
 from .forms import CustomUserCreationForm
+from django.contrib.auth.decorators import login_required
 
 class HomePage(TemplateView):
     """
@@ -24,3 +25,6 @@ def register(request):
         form = CustomUserCreationForm()
 
     return render(request, 'accounts/register.html', {'form': form})
+
+def profile_view(request):
+    return render(request, 'accounts/profile.html', {'user': request.user})
