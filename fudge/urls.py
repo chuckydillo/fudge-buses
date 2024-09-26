@@ -21,4 +21,5 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),  # Login page
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Logout page
     path('profile/', views.profile_view, name='profile'),  # Profile page
+    path('busreport/', views.busreport_view, name='busreport'),  # Bus report form page
 ]
