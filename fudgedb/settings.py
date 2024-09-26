@@ -39,6 +39,10 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
 
+
+# Redirects
+LOGIN_REDIRECT_URL = 'profile'  # Profile
+
 # Application definition
 
 INSTALLED_APPS = [
