@@ -22,5 +22,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Logout page
     path('profile/', views.profile_view, name='profile'),  # Profile page
     #path('bus_report/', views.busreport_view, name='bus_report'),  # Bus report form page
-    path('bus_report/', views.bus_report, name='bus_report'),
+    path('bus_report/', views.bus_report, name='bus_report'),  # URL for viewing bus report form page
+    path('bus-info/', views.bus_info_list, name='bus_info_list'),  # URL for viewing bus info list
 ]
