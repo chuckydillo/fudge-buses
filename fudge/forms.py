@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from .models import BusInfoModel
+from .models import BusInfoModel, BusStopsModel
 
 # User registration form
 class CustomUserCreationForm(UserCreationForm):
@@ -29,7 +29,7 @@ class BusInfoForm(forms.ModelForm):
             'bus_number',
             ]
 
-class BusStopTimeForm(forms.ModelForm):
+class BusStopForm(forms.ModelForm):
     class Meta:
         model = BusStops
         fields = [
