@@ -6,8 +6,8 @@ from django.views.generic import TemplateView
 from django.contrib.auth import login 
 from .forms import CustomUserCreationForm # For user registratin
 from django.contrib.auth.decorators import login_required
-from .forms import BusInfoForm
-from .models import BusInfoModel
+from .forms import BusInfoForm, BusStopForm
+from .models import BusInfoModel, BusStopModel
 #from .models import BusModel
 
 
