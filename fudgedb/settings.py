@@ -41,6 +41,7 @@ CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.
 
 
 # Redirects
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'profile'  # Profile
 
 # Application definition
