@@ -45,8 +45,8 @@ def bus_report(request):
     if request.method == 'POST':
         form = BusInfoForm(request.POST)
         if form.is_valid():
-            Content - form.cleaned_data['content']
-            return redirect('home')  # Redirect after successful submission
+            bus_info = form.save()
+            return redirect('bus_info_list')
     else:
         form = BusInfoForm()
     
@@ -59,3 +59,11 @@ def bus_reports_view(request):
 
     # Pass the bus reports to the template
     return render(request, 'bus_reports.html', {'bus_reports': bus_reports})
+
+
+def bus_info_list(request):
+    # Fetch all bus info entries from the database
+    bus_infos = BusInfoModel.objects.all()
+
+    # Pass the data to the template
+    return render(request, 'bus/bus_info_list.html', {'bus_infos': bus_infos})
