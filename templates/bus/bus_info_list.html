@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Information</title>
+</head>
+<body>
+
+    <h1>Bus Information List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Bus Company</th>
+                <th>Bus Number</th>
+                <th>Bus Stop</th>
+                <th>Bus Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bus_info in bus_infos %}
+            <tr>
+                <td>{{ bus_info.bus_company }}</td>
+                <td>{{ bus_info.bus_number }}</td>
+                <td>{{ bus_info.bus_stop }}</td>
+                <td>{{ bus_info.bus_time }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No bus information available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
