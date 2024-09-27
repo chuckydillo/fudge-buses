@@ -27,9 +27,15 @@ class BusInfoForm(forms.ModelForm):
         fields = [
             'bus_company',
             'bus_number',
+            ]
+
+class BusStopTimeForm(forms.ModelForm):
+    class Meta:
+        model = BusStops
+        fields = [
+            'bus_stop', 
             'bus_time',
-            'bus_stop',
-        ]
+            ]
         widgets = {
             'bus_time': forms.TimeInput(attrs={'type': 'time'}),
         }
