@@ -5,16 +5,6 @@ from django.urls import reverse
 # Create your models here.
     
 
-#class BusInfoModel(models.Model):
-#
-#    bus_company = models.CharField(max_length=200)
-#    bus_number = models.CharField(max_length=5)
-
-#class BusStopModel(models.Model):
-#    bus_info = models.ForeignKey(BusInfoModel, related_name="stops", on_delete=models.CASCADE)
-#    bus_stop = models.CharField(max_length=1000)
-#    bus_time = models.TimeField()
-
 
 class BusInfoModel(models.Model):
     bus_company = models.CharField(max_length=200)  # Name of the bus company
@@ -34,3 +24,22 @@ class BusStopModel(models.Model):
 
     def __str__(self):
         return f"{self.bus_stop} at {self.bus_time}"  # String representation for better readability
+
+class BusReportModel(models.Model):
+    BUS_STATUS_CHOICES  = [
+        ('on_time', 'On Time'),
+        ('late', 'Late'),
+        ('cancelled', 'Cancelled'),
+    ]
+    bus_status = models.CharField(max_length=15, choices=bus_status_choices)
+
+    BUS_DELAY_CHOICES  = [
+    ('0-5', 'Less than 5 minutes'),
+    ('5-10', 'Between 5 and 10 minutes'),
+    ('10-20', 'between 10 and 20 minutes'),
+    ('20+', 'More than 20 minutes'),
+    ]
+    bus_delay_time = models.CharField(max_length=30, choices=bus_delay_choices, blank=True)  # Optional if not late
+
+    def __str__(self):
+        return f"Bus Report: {self.bus_status}"
