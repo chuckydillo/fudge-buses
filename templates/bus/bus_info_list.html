@@ -9,30 +9,27 @@
 
     <h1>Bus Information List</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Bus Company</th>
-                <th>Bus Number</th>
-                <th>Bus Stop</th>
-                <th>Bus Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for bus_info in bus_infos %}
-            <tr>
-                <td>{{ bus_info.bus_company }}</td>
-                <td>{{ bus_info.bus_number }}</td>
-                <td>{{ bus_info.bus_stop }}</td>
-                <td>{{ bus_info.bus_time }}</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="4">No bus information available.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+    <ul>
+        {% for bus_info in bus_infos %}
+            <li>
+                <strong>Bus Company:</strong> {{ bus_info.bus_company }} <br>
+                <strong>Bus Number:</strong> {{ bus_info.bus_number }}
+    
+                <h3>Stops:</h3>
+                <ul>
+                    {% for stop in bus_info.stops.all %}
+                        <li>
+                            <strong>Bus Stop:</strong> {{ stop.bus_stop }} <br>
+                            <strong>Time:</strong> {{ stop.bus_time }}
+                        </li>
+                    {% empty %}
+                        <li>No stops available for this bus.</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
 
 </body>
 </html>
