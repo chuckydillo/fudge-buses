@@ -34,7 +34,7 @@ class BusReportModel(models.Model):
         ('late', 'Late'),
         ('cancelled', 'Cancelled'),
     ]
-    bus_status = models.CharField(max_length=15, choices=bus_status_choices)
+    bus_status = models.CharField(max_length=15, choices=BUS_STATUS_CHOICES)
 
     BUS_DELAY_CHOICES  = [
     ('0-5', 'Less than 5 minutes'),
@@ -42,7 +42,7 @@ class BusReportModel(models.Model):
     ('10-20', 'between 10 and 20 minutes'),
     ('20+', 'More than 20 minutes'),
     ]
-    bus_delay_time = models.CharField(max_length=30, choices=bus_delay_choices, blank=True)  # Optional if not late
+    bus_delay_time = models.CharField(max_length=30, choices=BUS_DELAY_CHOICES, blank=True)  # Optional if not late
 
     def __str__(self):
         return f"Bus Report: {self.bus_status}"
