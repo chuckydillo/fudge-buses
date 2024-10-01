@@ -6,8 +6,9 @@ from django.views.generic import TemplateView
 from django.contrib.auth import login 
 from .forms import CustomUserCreationForm # For user registratin
 from django.contrib.auth.decorators import login_required
-from .forms import BusInfoForm, BusStopForm
-from .models import BusInfoModel, BusStopModel
+from django.forms import modelformset_factory
+from .forms import BusInfoForm, BusStopForm, BusReportForm
+from .models import BusInfoModel, BusStopModel, BusReportModel
 #from .models import BusModel
 
 
@@ -35,35 +36,31 @@ def register(request):
 def profile_view(request):
     return render(request, 'accounts/profile.html', {'user': request.user})
 
-# View for Bus Report Form
-def busreport_view(request):
-    return render(request, 'bus/bus_report.html')
+# Fetch all bus info entries from the database
+def bus_info_list(request):
+    bus_infos = BusInfoModel.objects.prefetch_related('stops').all()
 
-# Bus route creation form
-@login_required
-def bus_report(request):
+    return render(request, 'bus/bus_info_list.html', {'bus_infos': bus_infos})
+
+# Form to add bus routes
+def bus_add(request):
+    BusStopModelFormSet = modelformset_factory(BusStopModel, form=BusStopForm, extra=1)
+
     if request.method == 'POST':
-        form = BusInfoForm(request.POST)
-        if form.is_valid():
-            bus_info = form.save()
+        bus_form = BusInfoForm(request.POST)
+        formset = BusStopModelFormSet(request.POST)
+
+        if bus_form.is_valid() and formset.is_valid():
+            bus_info = bus_form.save()
+            for form in formset:
+                if form.cleaned_data:
+                    bus_stop_time = form.save(commit=False)
+                    bus_stop_time.bus_info = bus_info
+                    bus_stop_time.save()
+
             return redirect('bus_info_list')
     else:
-        form = BusInfoForm()
-    
-    return render(request, 'bus/bus_report.html', {'form': form})
+        bus_form = BusInfoForm()
+        formset = BusStopModelFormSet(queryset=BusStopModel.objects.none())
 
-
-def bus_reports_view(request):
-    # Query the database for all bus reports
-    bus_reports = BusReport.objects.all()
-
-    # Pass the bus reports to the template
-    return render(request, 'bus_reports.html', {'bus_reports': bus_reports})
-
-
-def bus_info_list(request):
-    # Fetch all bus info entries from the database
-    bus_infos = BusInfoModel.objects.all()
-
-    # Pass the data to the template
-    return render(request, 'bus/bus_info_list.html', {'bus_infos': bus_infos})
+    return render(request, 'bus/bus_add.html', {'bus_form': bus_form, 'formset': formset})
