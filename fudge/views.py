@@ -64,3 +64,18 @@ def bus_add(request):
         formset = BusStopModelFormSet(queryset=BusStopModel.objects.none())
 
     return render(request, 'bus/bus_add.html', {'bus_form': bus_form, 'formset': formset})
+
+# Form to report buses
+
+@login_required
+def bus_report_view(request):
+    if request.method == 'POST':
+        form = BusReportForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the bus report if valid
+            return redirect('home')  # Redirect to a success page or home page
+    else:
+        form = BusReportForm()  # Create an empty form for GET request
+
+   
+    return render(request, 'bus/bus_report.html', {'form': form})
