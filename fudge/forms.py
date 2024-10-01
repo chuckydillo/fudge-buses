@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from .models import BusInfoModel, BusStopModel
+from .models import BusInfoModel, BusStopModel, BusReportModel
 
 # User registration form
 class CustomUserCreationForm(UserCreationForm):
@@ -13,11 +13,24 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
-#class BusForm(forms.Form):
-#    bus_company = forms.ChoiceField(
-#        choices=[('delay', 'Delay'), ('incident', 'Incident'), ('maintenance', 'Maintenance')],
-#        label='Bus Company'
-#    )
+class BusReportForm(forms.ModelForm):
+    class Meta:
+        model = BusReportModel
+        fields = ['bus_report_date', 'bus_status', 'bus_delay_time']
+
+        widgets = {
+            'bus_report_date': forms.TimeInput(attrs={'type': 'time'}),
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        bus_status = cleaned_data.get('bus_status')
+        bus_delay_time = cleaned_data.get('bus_delay_time')
+
+        if bus_status == 'late' and not bus_delay_time:
+            self.add_error('bus_delay_time', 'Bus delay time is required if the bus is late.')
+
+        return cleaned_data
 # ------------------------------
 
 class BusInfoForm(forms.ModelForm):
