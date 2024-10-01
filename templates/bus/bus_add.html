@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <body>
-    <form method="POST" id="busReportForm">
+    <form method="POST" id="busAddForm">
         {% csrf_token %}
         {{ bus_form.as_p }}
 
@@ -25,6 +18,37 @@
 
     </form>
     
+    <script>
+        // Script to add new index
+        document.getElementById('addBusStopButton').onclick = function() {
+            var formCount = document.querySelectorAll('.formset_row').length;
+            var newForm = document.querySelector('.formset_row').cloneNode(true);
     
-</body>
-</html>
+            var inputs = newForm.querySelectorAll('input, select, textarea');
+            inputs.forEach(function(input) {
+                input.value = '';
+    
+                var name = input.name.replace(/\d+/, formCount);
+                var id = input.id.replace(/\d+/, formCount);
+                input.name = name;
+                input.id = id;
+            });
+
+            newForm.dataset.formIndex = formCount;
+
+            var deleteButton = newForm.querySelector('.deleteBusStopButton');
+            deleteButton.onclick = function() {
+                newForm.remove();
+            };
+
+            document.getElementById('busStopFormsetContainer').appendChild(newForm);
+        };
+    
+        // Add delete functionality to existing forms
+        document.querySelectorAll('.deleteBusStopButton').forEach(function(button) {
+            button.onclick = function() {
+                var row = button.closest('.formset_row');
+                row.remove(); 
+            };
+        });
+    </script>
