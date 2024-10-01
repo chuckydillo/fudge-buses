@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+import datetime
 
 # Create your models here.
     
@@ -27,7 +28,7 @@ class BusStopModel(models.Model):
 
 class BusReportModel(models.Model):
 
-    bus_report_date = models.DateField() # Date of delay
+    bus_report_date = models.DateField(null=True, blank=True) # Date of delay
 
     BUS_STATUS_CHOICES  = [
         ('on_time', 'On Time'),
