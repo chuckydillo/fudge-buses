@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bus Report</title>
+
 </head>
 <body>
-    <h1>Submit Form</h1>
-    
-    {% if user.is_authenticated %}
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit</button>
-        </form>
-    {% else %}
-        <p>You must be logged in to submit this form.</p>
-    {% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div id="delayTimeContainer" style="display:none;">
+        {{ form.bus_delay_time.label_tag }} {{ form.bus_delay_time }}
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const statusField = document.getElementById('id_bus_status');
+        const delayFieldContainer = document.getElementById('delayTimeContainer');
+        const delayField = document.getElementById('id_bus_delay_time');
+
+        function toggleDelayField() {
+            if (statusField.value === 'late') {
+                delayFieldContainer.style.display = 'block';
+            } else {
+                delayFieldContainer.style.display = 'none';
+                delayField.value = '';  // Clear the value if hidden
+            }
+        }
+        toggleDelayField();
+
+        statusField.addEventListener('change', toggleDelayField);
+    });
+</script>
 </html>
