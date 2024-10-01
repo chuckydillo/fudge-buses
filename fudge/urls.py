@@ -12,7 +12,7 @@
 
 from . import views
 from django.urls import path
-from .views import HomePage, register
+from .views import HomePage, register, bus_report_view
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -22,6 +22,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Logout page
     path('profile/', views.profile_view, name='profile'),  # Profile page
     #path('bus_report/', views.busreport_view, name='bus_report'),  # Bus report form page
-    path('bus_report/', views.bus_report, name='bus_report'),  # URL for viewing bus report form page
+    path('bus_report/', bus_report_view, name='bus_report'),  # URL for the bus report form
+    path('bus_add/', views.bus_add, name='bus_add'),  # URL for bus add form page
     path('bus-info/', views.bus_info_list, name='bus_info_list'),  # URL for viewing bus info list
 ]
