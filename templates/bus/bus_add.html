@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" id="busReportForm">
+        {% csrf_token %}
+        {{ bus_form.as_p }}
+
+        <div id="busStopFormsetContainer">
+            {{ formset.management_form }}
+            {% for form in formset %}
+                <div class="formset_row" data-form-index="{{ forloop.counter0 }}">
+                    {{ form.as_p }} 
+                    <button type="button" class="deleteBusStopButton">Delete</button>
+                </div>
+            {% endfor %}
+        </div>
+    
+        <button type="button" id="addBusStopButton">Add Bus Stop</button>
+        <button type="submit">Submit</button>
+
+    </form>
+    
+    
+</body>
+</html>
