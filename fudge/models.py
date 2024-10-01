@@ -26,6 +26,9 @@ class BusStopModel(models.Model):
         return f"{self.bus_stop} at {self.bus_time}"  # String representation for better readability
 
 class BusReportModel(models.Model):
+
+    bus_report_date = models.DateField() # Date of delay
+
     BUS_STATUS_CHOICES  = [
         ('on_time', 'On Time'),
         ('late', 'Late'),
