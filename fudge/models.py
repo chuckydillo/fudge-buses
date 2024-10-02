@@ -44,6 +44,8 @@ class BusReportModel(models.Model):
     ('20+', 'More than 20 minutes'),
     ]
     bus_delay_time = models.CharField(max_length=30, choices=BUS_DELAY_CHOICES, blank=True)  # Optional if not late
+    
+    submitted_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f"Bus Report: {self.bus_status}"
