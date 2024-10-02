@@ -11,12 +11,15 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+# ------------------------------
 
 
 class BusReportForm(forms.ModelForm):
+    bus_info = forms.ModelChoiceField(queryset=BusInfoModel.objects.all(), empty_label="Select Bus Info")
+    bus_stop = forms.ModelChoiceField(queryset=BusStopModel.objects.all(), empty_label="Select Bus Stop & Time") 
     class Meta:
         model = BusReportModel
-        fields = ['bus_report_date', 'bus_status', 'bus_delay_time']
+        fields = ['bus_info', 'bus_stop', 'bus_report_date', 'bus_status', 'bus_delay_time']
 
         widgets = {
             'bus_report_date': forms.TimeInput(attrs={'type': 'time'}),
