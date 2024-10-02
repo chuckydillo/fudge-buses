@@ -72,10 +72,12 @@ def bus_report_view(request):
     if request.method == 'POST':
         form = BusReportForm(request.POST)
         if form.is_valid():
-            form.save()  # Save the bus report if valid
-            return redirect('home')  # Redirect to a success page or home page
+            bus_report = form.save(commit=False)
+            bus_report.submitted_by = request.user
+            bus_report.save()
+            return redirect('home')
     else:
-        form = BusReportForm()  # Create an empty form for GET request
+        form = BusReportForm()
 
    
     return render(request, 'bus/bus_report.html', {'form': form})
