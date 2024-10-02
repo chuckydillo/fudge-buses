@@ -22,7 +22,7 @@ class BusReportForm(forms.ModelForm):
         fields = ['bus_info', 'bus_stop', 'bus_report_date', 'bus_status', 'bus_delay_time']
 
         widgets = {
-            'bus_report_date': forms.TimeInput(attrs={'type': 'time'}),
+            'bus_report_date': forms.DateInput(attrs={'type': 'date'}),
         }
 
     def clean(self):
