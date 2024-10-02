@@ -1,0 +1,19 @@
+<!-- delete_bus_report.html -->
+{% extends 'base.html' %}
+
+{% block title %}Report a Bus{% endblock %}
+
+{% block content %}
+<div>
+    <h2>Are you sure you want to delete this report?</h2>
+    <p>Bus Status: {{ bus_report.bus_status }}</p>
+    <p>Submitted on: {{ bus_report.bus_report_date }}</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+        <a href="{% url 'bus_report' %}">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}
