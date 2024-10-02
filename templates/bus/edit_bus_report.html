@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Report a Bus{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Edit Bus Report</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render the form fields -->
+        <button type="submit">Update Report</button>
+    </form>
+
+    <a href="{% url 'bus_report' %}">Cancel</a>  <!-- Link to go back to the user's reports page -->
+</div>
+
+{% endblock %}
