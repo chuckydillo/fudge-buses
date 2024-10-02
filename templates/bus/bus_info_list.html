@@ -1,35 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Information</title>
-</head>
-<body>
+<!-- delete_bus_report.html -->
+{% extends 'base.html' %}
 
-    <h1>Bus Information List</h1>
+{% block title %}Report a Bus{% endblock %}
+
+{% block content %}
+
+<h1>Bus Information List</h1>
 
 
-    <ul>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Bus Company</th>
+            <th>Bus Number</th>
+            <th>Bus Stop</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for bus_info in bus_infos %}
-            <li>
-                <strong>Bus Company:</strong> {{ bus_info.bus_company }} <br>
-                <strong>Bus Number:</strong> {{ bus_info.bus_number }}
-    
-                <h3>Stops:</h3>
-                <ul>
-                    {% for stop in bus_info.stops.all %}
-                        <li>
-                            <strong>Bus Stop:</strong> {{ stop.bus_stop }} <br>
-                            <strong>Time:</strong> {{ stop.bus_time }}
-                        </li>
-                    {% empty %}
-                        <li>No stops available for this bus.</li>
-                    {% endfor %}
-                </ul>
-            </li>
+            <tr>
+                <td>{{ bus_info.bus_company }}</td>
+                <td>{{ bus_info.bus_number }}</td>
+                <td colspan="2">
+                    <table border="1">
+                        {% for stop in bus_info.stops.all %}
+                            <tr>
+                                <td>{{ stop.bus_stop }}</td>
+                                <td>{{ stop.bus_time }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="2">No stops available for this bus.</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
+    </tbody>
+</table>
 
-</body>
-</html>
+{% endblock %}
