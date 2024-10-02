@@ -1,0 +1,32 @@
+<!-- base.html which will appear on all pages -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="#">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'profile' %}">Home</a></li>
+            <li><a href="{% url 'bus_report' %}">Bus Reports</a></li>
+            <li><a href="{% url 'user_bus_report' %}">Bus Report History</a></li>
+            <li><a href="{% url 'bus_info_list' %}">Bus Information</a></li>
+            <li><a href="{% url 'bus_add' %}">Add Bus Route</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- Footer-->
+    <div>
+
+    </div>
+</body>
+</html>
