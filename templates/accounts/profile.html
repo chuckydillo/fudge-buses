@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-</head>
-<body>
-    <h1>Hello {{ user.username }}!</h1>
-    <a class="" href="{% url 'bus_report' %}"><span>Bus Report</span></a>
-    <a class="" href="{% url 'bus_info_list' %}"><span>Bus Information</span></a>
-    <a class="" href="{% url 'bus_add' %}"><span>Add Bus Route</span></a>
+<!-- Profile page-->
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}Profile{% endblock %}
 
-
+{% block content %}
+<h1>Hello {{ user.username }}!</h1>
+{% endblock %}
