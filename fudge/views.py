@@ -3,14 +3,18 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
-from django.contrib.auth import login 
+from django.contrib.auth import login
 from .forms import CustomUserCreationForm # For user registratin
 from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
 from .forms import BusInfoForm, BusStopForm, BusReportForm
 from .models import BusInfoModel, BusStopModel, BusReportModel
+
+from django.contrib.auth.decorators import user_passes_test
 #from .models import BusModel
 
+def superuser_required(user):
+    return user.is_superuser
 
 # View for homepage
 class HomePage(TemplateView):
@@ -33,16 +37,19 @@ def register(request):
     return render(request, 'accounts/register.html', {'form': form})
 
 # View for profile
+@login_required
 def profile_view(request):
     return render(request, 'accounts/profile.html', {'user': request.user})
 
 # Fetch all bus info entries from the database
+@user_passes_test(superuser_required)
 def bus_info_list(request):
     bus_infos = BusInfoModel.objects.prefetch_related('stops').all()
 
     return render(request, 'bus/bus_info_list.html', {'bus_infos': bus_infos})
 
 # Form to add bus routes
+@user_passes_test(superuser_required)
 def bus_add(request):
     BusStopModelFormSet = modelformset_factory(BusStopModel, form=BusStopForm, extra=1)
 
