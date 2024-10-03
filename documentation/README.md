@@ -3,14 +3,14 @@
 Welcome to FudgeBuses! This web application aims to provide a reliable platform for users to report and track bad bus services that are consistently late or canceled. Understanding the frustrations of relying on public transport, FudgeBuses empowers users to share their experiences and helps create a transparent environment for making informed travel decisions.
 
 **My Mission**  
-The mission of FudgeBuses is to give users a voice in reporting their experiences with bus services. The app enables users to easily report late or canceled services, providing a historical overview of bus service performance in their area. Users can view reports submitted by others, helping everyone stay informed about local bus services. Additionally, FudgeBuses encourages bus companies to improve their services through community feedback.
+The mission of FudgeBuses is to give users a voice in reporting their experiences with bus services. The app enables users to easily report late or canceled services, providing a historical overview of bus service performance in their area. Users can will be able to view the collective data submitted by others, helping everyone stay informed about local bus services. Additionally, FudgeBuses hopes that this will put pressure and encourage bus companies to improve their services.
 
 **Why Track Bus Services?**  
 Public transportation is a vital part of many communities but can often be unreliable. By tracking bus services with FudgeBuses, users can identify patterns in service disruptions, improve accountability for bus companies, and find alternative travel options when needed. This platform aims to make public transportation more reliable and user-friendly for everyone.
 
 ![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
 
- [FudgeBuses on Heroku](https://fudgebuses-2818f2a44822.herokuapp.com/)
+[FudgeBuses on Heroku](https://fudgebuses-2818f2a44822.herokuapp.com/)
   
 [FudgeBuses on Github](https://github.com/chuckydillo/fudge-buses)
 ## User Experience Design
@@ -22,20 +22,32 @@ Public transportation is a vital part of many communities but can often be unrel
 - **Landing Page**  
   The landing page is designed with user experience in mind, offering a seamless interface for quick registration or login. This strategic approach aims to attract new users through effective advertising and organic word-of-mouth referrals.
 
+  ![enter image description here](#)
+
 - **About Page**  
   The About Page provides an insightful overview of FudgeBuses, detailing its mission and vision. It serves to educate users about the platform's purpose and the value it brings to the community.
+
+  ![enter image description here](#)
 
 - **Navigation Bar**  
   The navigation bar is thoughtfully integrated into the user interface, providing logged-in users with effortless access to essential features. For administrators, a distinct navigation bar appears, tailored to facilitate efficient site management and oversight.
 
+  ![enter image description here](#)
+
 - **User Profile**  
   The User Profile serves as the central hub for each user, granting quick access to all functionalities and personalized information. It is designed to enhance user engagement and streamline navigation throughout the platform.
+
+  ![enter image description here](#)
 
 - **Report Form**  
   The Report Form allows users to easily select bus routes and stops, enabling them to report the status of their journeys—whether a bus is late, canceled, or on time. This feature empowers users to contribute to the community's knowledge of service reliability.
 
+  ![enter image description here](#)
+
 - **Report History**  
   The Report History section offers users a comprehensive view of their past submissions, allowing them to edit or delete reports as necessary. This feature fosters transparency and encourages users to keep their contributions current and relevant.
+
+  ![enter image description here](#)
 
 ### Features Left to Implement
 
@@ -82,15 +94,7 @@ You will need to mention unfixed bugs and why they were not fixed. This section 
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
-
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the source section drop-down menu, select the Master Branch
-  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
-
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
-
+For deployment on Heroku, I used the Code Institute produced guide. A copy of which can be found [here](https://docs.google.com/document/d/14SR7GJW1zH6vre7Dlh-OLrjpVHWbs84w119smExxso0/edit?usp=sharing). 
 
 ## Credits
 
