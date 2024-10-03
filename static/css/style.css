@@ -1,3 +1,57 @@
-h1 {
-    color: red;
+.titillium-web-regular {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .titillium-web-regular-italic {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+
+html {
+    background-color: #FEF1E6;
+}
+
+#login{
+    text-align: center;
+    padding-top: 100px;
+}
+
+.login-container {
+display: flex;
+height: 70vh;
+justify-content: center;
+align-items: center;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+}
+
+.ul-nav {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FFB085;
+    font-size: 14pt;
+    height: 30px;
+}
+
+.footer-container {
+    display: flex;
+    align-items:flex-end;
+    font-size: 14pt;
+    height: 100vh;
+} 
+.footer {
+   background-color: #FFB085;
+   width: 100%;
+   font-size: 14pt;
+   height: 30px;
+   text-align: center;
 }
