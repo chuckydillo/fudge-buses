@@ -1,54 +1,59 @@
-<body>
-    <form method="POST" id="busAddForm">
-        {% csrf_token %}
-        {{ bus_form.as_p }}
+{% extends 'base.html' %}
 
-        <div id="busStopFormsetContainer">
-            {{ formset.management_form }}
-            {% for form in formset %}
-                <div class="formset_row" data-form-index="{{ forloop.counter0 }}">
-                    {{ form.as_p }} 
-                    <button type="button" class="deleteBusStopButton">Delete</button>
-                </div>
-            {% endfor %}
-        </div>
-    
-        <button type="button" id="addBusStopButton">Add Bus Stop</button>
-        <button type="submit">Submit</button>
+{% block title %}Report a Bus{% endblock %}
 
-    </form>
-    
-    <script>
-        // Script to add new index
-        document.getElementById('addBusStopButton').onclick = function() {
-            var formCount = document.querySelectorAll('.formset_row').length;
-            var newForm = document.querySelector('.formset_row').cloneNode(true);
-    
-            var inputs = newForm.querySelectorAll('input, select, textarea');
-            inputs.forEach(function(input) {
-                input.value = '';
-    
-                var name = input.name.replace(/\d+/, formCount);
-                var id = input.id.replace(/\d+/, formCount);
-                input.name = name;
-                input.id = id;
-            });
+{% block content %}
+<form method="POST" id="busAddForm">
+    {% csrf_token %}
+    {{ bus_form.as_p }}
 
-            newForm.dataset.formIndex = formCount;
+    <div id="busStopFormsetContainer">
+        {{ formset.management_form }}
+        {% for form in formset %}
+            <div class="formset_row" data-form-index="{{ forloop.counter0 }}">
+                {{ form.as_p }} 
+                <button type="button" class="deleteBusStopButton">Delete</button>
+            </div>
+        {% endfor %}
+    </div>
 
-            var deleteButton = newForm.querySelector('.deleteBusStopButton');
-            deleteButton.onclick = function() {
-                newForm.remove();
-            };
+    <button type="button" id="addBusStopButton">Add Bus Stop</button>
+    <button type="submit">Submit</button>
 
-            document.getElementById('busStopFormsetContainer').appendChild(newForm);
-        };
-    
-        // Add delete functionality to existing forms
-        document.querySelectorAll('.deleteBusStopButton').forEach(function(button) {
-            button.onclick = function() {
-                var row = button.closest('.formset_row');
-                row.remove(); 
-            };
+</form>
+
+<script>
+    // Script to add new index
+    document.getElementById('addBusStopButton').onclick = function() {
+        var formCount = document.querySelectorAll('.formset_row').length;
+        var newForm = document.querySelector('.formset_row').cloneNode(true);
+
+        var inputs = newForm.querySelectorAll('input, select, textarea');
+        inputs.forEach(function(input) {
+            input.value = '';
+
+            var name = input.name.replace(/\d+/, formCount);
+            var id = input.id.replace(/\d+/, formCount);
+            input.name = name;
+            input.id = id;
         });
-    </script>
+
+        newForm.dataset.formIndex = formCount;
+
+        var deleteButton = newForm.querySelector('.deleteBusStopButton');
+        deleteButton.onclick = function() {
+            newForm.remove();
+        };
+
+        document.getElementById('busStopFormsetContainer').appendChild(newForm);
+    };
+
+    // Add delete functionality to existing forms
+    document.querySelectorAll('.deleteBusStopButton').forEach(function(button) {
+        button.onclick = function() {
+            var row = button.closest('.formset_row');
+            row.remove(); 
+        };
+    });
+</script>
+{% endblock %}
