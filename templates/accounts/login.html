@@ -1,17 +1,27 @@
+
 <html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@0;1&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
-    <p><a href="{% url 'home' %}">Take me back home</a>.</p>
+    <h2 class="titillium-web-regular login">Login</h2>
+    <div class="login-container">
+        <form method="post">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <button type="submit">Login</button>
+         </form>
+    </div>
+    <div class="register-container">
+        <p class="titillium-web-regular-italic">Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+        <p class="titillium-web-regular-italic"><a href="{% url 'home' %}">Take me back home</a>.</p>
+    </div>
 </body>
 </html>
