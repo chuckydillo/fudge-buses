@@ -10,6 +10,9 @@ Public transportation is a vital part of many communities but can often be unrel
 
 ![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
 
+ [FudgeBuses on Heroku](https://fudgebuses-2818f2a44822.herokuapp.com/)
+  
+[FudgeBuses on Github](https://github.com/chuckydillo/fudge-buses)
 ## User Experience Design
 
 ## Features 
@@ -89,25 +92,41 @@ This section should describe the process you went through to deploy the project 
 The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
 
 
-## Credits 
+## Credits
 
-In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
+I would like to acknowledge the following resources and tools that contributed significantly to the development of **FudgeBuses**:
 
-You can break the credits section up into Content and Media, depending on what you have included in your project. 
+- **Django Documentation**  
+  For detailed guidance and comprehensive explanations on the core components of Django, including views, models, and URL routing:  
+  [Django Documentation](https://docs.djangoproject.com/en/5.1/)
 
-### Content 
+- **Satyarepala's Medium Article**  
+  A comprehensive guide to understanding and working with Django views:  
+  [Understanding Django Views](https://medium.com/@satyarepala/a-comprehensive-guide-to-django-views-understanding-types-and-use-cases-4a02a078ced)
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- **W3Schools Django Guide**  
+  For clear and concise tutorials on Django:  
+  [W3Schools Django Tutorial](https://www.w3schools.com/django/index.php)
 
-### Media
+- **Figma**  
+  For creating wireframes and designing the layout of the application:  
+  [Figma](https://www.figma.com/)
 
-- The photos used on the home and sign up page are from This Open Source site
-- The images used for the gallery page were taken from this other open source site
+- **drawSQL**  
+  Used for generating the Entity-Relationship Diagram (ERD) for the database schema:  
+  [drawSQL](https://drawsql.app/)
 
+- **ChatGPT**  
+  For assistance with debugging, checking code for PEP 8 standards, and generating content for the `about.html` page:  
+  [ChatGPT](https://openai.com/chatgpt)
 
-Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
+- **PerplexityAI**  
+  For providing explanations and breaking down complex code blocks to enhance my understanding:  
+  [PerplexityAI](https://www.perplexity.ai/)
+
+- **StackEdit**  
+Used for editing and formatting the markdown in the README and documentation:  
+[StackEdit](https://stackedit.io/)
 
 ## Other General Project Advice
 
@@ -125,3 +144,4 @@ Below you will find a couple of extra tips that may be helpful when completing y
   - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
 
 Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+
