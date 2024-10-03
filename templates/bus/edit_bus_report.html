@@ -1,4 +1,6 @@
+<!-- edit bus report page -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Report a Bus{% endblock %}
 
@@ -8,11 +10,11 @@
     
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}  <!-- Render the form fields -->
+        {{ form.as_p }}
         <button type="submit">Update Report</button>
     </form>
 
-    <a href="{% url 'user_bus_report_history' %}">Cancel</a>  <!-- Link to go back to the user's reports page -->
+    <a href="{% url 'user_bus_report_history' %}">Cancel</a>
 </div>
 
 {% endblock %}

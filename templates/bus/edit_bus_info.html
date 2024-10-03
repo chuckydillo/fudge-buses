@@ -1,4 +1,6 @@
+<!-- Edit bus info page -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Edit Bus Info{% endblock %}
 
@@ -7,10 +9,10 @@
 
 <form method="POST" id="busEditForm">
     {% csrf_token %}
-    {{ bus_form.as_p }}  <!-- Display the bus info form -->
+    {{ bus_form.as_p }}
 
     <div id="busStopFormsetContainer">
-        {{ formset.management_form }} <!-- Manages the formset data -->
+        {{ formset.management_form }}
         {% for form in formset %}
             <div class="formset_row" data-form-index="{{ forloop.counter0 }}">
                 {{ form.as_p }} 
