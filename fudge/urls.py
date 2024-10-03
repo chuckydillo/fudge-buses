@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),  # Login page
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Logout page
     path('profile/', views.profile_view, name='profile'),  # Profile page
+    path('account_success/', views.account_success, name='account_success'), # Account creation confirm page
     path('user-bus-report/', views.user_bus_report_view, name='user_bus_report'),  # User bus report page
     path('user-bus-report-history/', views.user_bus_report_history_view, name='user_bus_report_history'),  # Bus report history page
     path('bus-add/', views.bus_add, name='bus_add'),  # Add new bus report page
