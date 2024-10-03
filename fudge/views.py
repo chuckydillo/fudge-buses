@@ -30,11 +30,14 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('account_success')
     else:
         form = CustomUserCreationForm()
 
     return render(request, 'accounts/register.html', {'form': form})
+
+def account_success(request):
+    return render(request, 'accounts/account_create_success.html')
 
 # View for profile
 @login_required
