@@ -128,3 +128,11 @@ def delete_bus_report_view(request, report_id):
         return redirect('user_bus_report_history')
 
     return render(request, 'bus/delete_bus_report.html', {'bus_report': bus_report})
+
+##############
+# Misc views #
+##############
+
+# View for about page
+class AboutView(TemplateView):
+    template_name = 'about.html'
