@@ -1,12 +1,10 @@
-<!-- delete_bus_report.html -->
+<!-- Bus information List-->
 {% extends 'base.html' %}
 
-{% block title %}Report a Bus{% endblock %}
+{% block title %}Bus Information List{% endblock %}
 
 {% block content %}
-
 <h1>Bus Information List</h1>
-
 
 <table border="1">
     <thead>
@@ -15,6 +13,7 @@
             <th>Bus Number</th>
             <th>Bus Stop</th>
             <th>Time</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +35,13 @@
                         {% endfor %}
                     </table>
                 </td>
+                    <a href="{% url 'edit_bus_info' bus_info.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete_bus_info' bus_info.id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="5">No bus information available.</td>
             </tr>
         {% endfor %}
     </tbody>
