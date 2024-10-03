@@ -3,16 +3,19 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 from .models import BusInfoModel, BusStopModel, BusReportModel
-
-# User registration form
+#########################
+# User registration form#
+#########################
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
-# ------------------------------
 
+###################
+# Bus Report form #
+###################
 
 class BusReportForm(forms.ModelForm):
     bus_info = forms.ModelChoiceField(queryset=BusInfoModel.objects.all(), empty_label="Select Bus Info")
@@ -34,7 +37,10 @@ class BusReportForm(forms.ModelForm):
             self.add_error('bus_delay_time', 'Bus delay time is required if the bus is late.')
 
         return cleaned_data
-# ------------------------------
+
+#################
+# Bus info form #
+#################
 
 class BusInfoForm(forms.ModelForm):
 
@@ -45,6 +51,9 @@ class BusInfoForm(forms.ModelForm):
             'bus_number',
             ]
 
+#################
+# Bus stop form #
+#################
 class BusStopForm(forms.ModelForm):
     class Meta:
         model = BusStopModel
