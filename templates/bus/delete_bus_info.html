@@ -5,7 +5,8 @@
 {% block content %}
 <div class="container">
     <h1>Delete Bus Info</h1>
-    <p>Are you sure you want to delete the bus route: <strong>{{ bus_info.route_name }}</strong>?</p>
+    <p>Are you sure you want to delete the bus route: <strong>{{ bus_info.bus_company }} - {{ bus_info.bus_number }}</strong>?</p>
+    
     <form method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Delete</button>
