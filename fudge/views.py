@@ -1,17 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
 from django.forms import modelformset_factory
-
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth import login
-from django.contrib.auth.decorators import login_required
-
-from .forms import CustomUserCreationForm
-from .forms import BusInfoForm, BusStopForm, BusReportForm
+from .forms import CustomUserCreationForm, BusInfoForm, BusStopForm, BusReportForm
 from .models import BusInfoModel, BusStopModel, BusReportModel
 
 ###################################
-# Account and admin related views #
+# Account and admin-related views #
 ###################################
 
 # Super User required
@@ -51,7 +47,6 @@ def profile_view(request):
 @user_passes_test(superuser_required)
 def bus_info_list(request):
     bus_infos = BusInfoModel.objects.prefetch_related('stops').all()
-
     return render(request, 'bus/bus_info_list.html', {'bus_infos': bus_infos})
 
 # Form to add bus routes
@@ -70,7 +65,6 @@ def bus_add(request):
                     bus_stop_time = form.save(commit=False)
                     bus_stop_time.bus_info = bus_info
                     bus_stop_time.save()
-
             return redirect('bus_info_list')
     else:
         bus_form = BusInfoForm()
@@ -90,21 +84,16 @@ def edit_bus_info_view(request, bus_id):
 
         if bus_form.is_valid() and formset.is_valid():
             bus_form.save()
-
             for form in formset:
                 bus_stop = form.save(commit=False)
                 bus_stop.bus_info = bus_info
                 bus_stop.save()
-
             return redirect('bus_info_list')
     else:
         bus_form = BusInfoForm(instance=bus_info)
         formset = BusStopModelFormSet(queryset=bus_info.stops.all())
 
-    return render(request, 'bus/edit_bus_info.html', {
-        'bus_form': bus_form,
-        'formset': formset,
-    })
+    return render(request, 'bus/edit_bus_info.html', {'bus_form': bus_form, 'formset': formset})
 
 # View to delete bus routes
 @user_passes_test(superuser_required)
@@ -117,10 +106,9 @@ def delete_bus_info_view(request, bus_id):
 
     return render(request, 'bus/delete_bus_info.html', {'bus_info': bus_info})
 
-
-######################
+#####################
 # Views for the user #
-######################
+#####################
 
 # Form to report buses
 @login_required
@@ -135,13 +123,12 @@ def user_bus_report_view(request):
     else:
         form = BusReportForm()
 
-   
     return render(request, 'bus/user_bus_report.html', {'form': form})
+
 # Fetch all bus report history from the database
 @login_required
 def user_bus_report_history_view(request):
     bus_reports = BusReportModel.objects.filter(submitted_by=request.user)
-
     return render(request, 'bus/bus_report_history.html', {'bus_reports': bus_reports})
 
 # View to edit bus reports
@@ -163,7 +150,7 @@ def edit_bus_report_view(request, report_id):
 @login_required
 def delete_bus_report_view(request, report_id):
     bus_report = get_object_or_404(BusReportModel, id=report_id, submitted_by=request.user)
-    
+
     if request.method == 'POST':
         bus_report.delete()
         return redirect('user_bus_report_history')
