@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Bus Info{% endblock %}
+
+{% block content %}
+<h1>Edit Bus Information</h1>
+
+<form method="POST" id="busEditForm">
+    {% csrf_token %}
+    {{ bus_form.as_p }}  <!-- Display the bus info form -->
+
+    <div id="busStopFormsetContainer">
+        {{ formset.management_form }} <!-- Manages the formset data -->
+        {% for form in formset %}
+            <div class="formset_row" data-form-index="{{ forloop.counter0 }}">
+                {{ form.as_p }} 
+                <button type="button" class="deleteBusStopButton">Delete</button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="button" id="addBusStopButton">Add Bus Stop</button>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    // Script to add a new bus stop form
+    document.getElementById('addBusStopButton').onclick = function() {
+        var formCount = document.querySelectorAll('.formset_row').length;
+        var newForm = document.querySelector('.formset_row').cloneNode(true);
+
+        var inputs = newForm.querySelectorAll('input, select, textarea');
+        inputs.forEach(function(input) {
+            input.value = '';
+
+            // Update the name and id attributes to match the new index
+            var name = input.name.replace(/\d+/, formCount);
+            var id = input.id.replace(/\d+/, formCount);
+            input.name = name;
+            input.id = id;
+        });
+
+        newForm.dataset.formIndex = formCount;
+
+        // Update the delete button functionality
+        var deleteButton = newForm.querySelector('.deleteBusStopButton');
+        deleteButton.onclick = function() {
+            newForm.remove();
+        };
+
+        document.getElementById('busStopFormsetContainer').appendChild(newForm);
+    };
+
+    // Add delete functionality to existing buttons
+    document.querySelectorAll('.deleteBusStopButton').forEach(function(button) {
+        button.onclick = function() {
+            var row = button.closest('.formset_row');
+            row.remove(); 
+        };
+    });
+</script>
+{% endblock %}
