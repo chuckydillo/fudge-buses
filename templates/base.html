@@ -1,4 +1,3 @@
-<!-- base.html which will appear on all pages -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
+    <nav>
         <ul class="ul-nav">
             <li><a href="{% url 'profile' %}">Home</a></li>
             <li><a href="{% url 'user_bus_report' %}">Bus Reports</a></li>
@@ -31,10 +30,10 @@
         {% block content %}
         {% endblock %}
     </div>
-    <!-- Footer-->
-    <div class="footer-container">
-        <h2 class="footer"></h2>
+
+    <!-- Footer -->
+    <footer class="footer-container">
         <p>&copy; 2024 Charles Mould. All rights reserved.</p>
-    <div>
+    </footer>
 </body>
 </html>
