@@ -11,19 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <H1>FUDGE BUSES</H1>
-    </div>
-    <div><!--Landing page guest menu-->
-        <ul class="" >
+    <div class="container"><!--Landing page guest menu-->
+        <H1>FudgeBuses</H1>
+        <ul class="main">
             <li>
-                <a class="" href="{% url 'login' %}"><span>Login</span></a>
+                <a class="li-landing" href="{% url 'login' %}"><span>Login</span></a>
             </li>
             <li>
-                <a class="" href="{% url 'register' %}"><span>Create Account</span></a>
+                <a class="li-landing" href="{% url 'register' %}"><span>Create Account</span></a>
             </li>
             <li>
-                <a class="" href="{% url 'about' %}"><span>About</span></a>
+                <a class="li-landing" href="{% url 'about' %}"><span>About</span></a>
             </li>
         </ul>
     </div>

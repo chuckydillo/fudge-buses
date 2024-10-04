@@ -11,17 +11,20 @@
 
 </head>
 <body>
-    <h2 class="titillium-web-regular login">Login</h2>
-    <div class="login-container">
-        <form method="post">
-         {% csrf_token %}
-         {{ form.as_p }}
-         <button type="submit">Login</button>
-         </form>
-    </div>
-    <div class="register-container">
-        <p class="titillium-web-regular-italic">Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
-        <p class="titillium-web-regular-italic"><a href="{% url 'home' %}">Take me back home</a>.</p>
+    <div class="container">
+        <h2>Login</h2>
+        <p>Sign in to your account.</p>
+        <div class="form-container">
+            <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="register-container">
+            <p class="titillium-web-regular-italic">Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+            <p class="titillium-web-regular-italic"><a href="{% url 'home' %}">Take me back home</a>.</p>
+        </div>
     </div>
 </body>
 </html>
