@@ -4,34 +4,88 @@
     font-style: normal;
   }
   
-  .titillium-web-regular-italic {
+.titillium-web-regular-italic {
     font-family: "Titillium Web", sans-serif;
     font-weight: 400;
     font-style: italic;
   }
   
 
-html {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     background-color: #FEF1E6;
 }
 
-#login{
+
+h1 {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 30px;
+    font-family: "titillium web", sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
-.login-container {
-display: flex;
-height: 70vh;
-justify-content: center;
-align-items: center;
+h2, h3{
+    text-align: center;
+    font-family: "titillium web", sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
-.register-container {
-    display: flex;
-    justify-content: center;
+/*----Profile Page Grid Blocks----*/
+.grid-container {
+    display: grid;
+    grid-template-rows: 1fr 2fr 2fr;
+    gap: 10px;
+    background-color: #F9D5A7;
+    height: 88%;
+    font-family: "titillium web", sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
+.grid-container > div {
+    margin: 20px;
+}
+
+.grid-container > .profile-section {
+    background-color: #90AACB;
+    border: 5px solid darkblue;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+/*----Registration Page----*/
+
+.register {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/*----About Page----*/
+
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about ul {
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+
+/*----Nav Bar----*/
 .ul-nav {
     list-style-type: none;
     display: flex;
@@ -40,18 +94,96 @@ align-items: center;
     background-color: #FFB085;
     font-size: 14pt;
     height: 30px;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    margin-top: -10px;
 }
 
 .footer-container {
+    list-style-type: none; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    background-color: #FFB085; 
+    font-size: 14pt; 
+    height: 30px; 
+    padding: 0;
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+
+/*----Landing Page----*/
+.main {
+    list-style-type: none;
+    padding: 50px;
+    margin: 0;
     display: flex;
-    align-items:flex-end;
-    font-size: 14pt;
-    height: 100vh;
-} 
-.footer {
-   background-color: #FFB085;
-   width: 100%;
-   font-size: 14pt;
-   height: 30px;
-   text-align: center;
+    flex-direction: column;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.li-landing {
+    height: 100px;
+    width: 200px;
+    border: 5px solid darkblue;
+    background-color: #90AACB;
+    text-align: center;
+    font-size: 16pt;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.li-landing span {
+    margin-top: 50px;
+}
+
+/* ---Multi Page Styling---*/
+
+.content {
+    flex: 1;
+    display: block;
+    padding-top: 40px;
+    text-align: center;
+}
+
+/* Background Block*/
+.container {
+    background-color: #F9D5A7;
+    font-family: "titillium web", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: 2px solid darkblue;
+}
+
+/*Small Links*/
+.form-container {
+    display: flex;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9D5A7;
+    margin: 20px;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    text-align: center;
 }
