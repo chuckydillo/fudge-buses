@@ -20,7 +20,7 @@ Public transportation is a vital part of many communities but can often be unrel
 ### Existing Features
 
 - **Landing Page**  
-  The landing page is designed with user experience in mind, offering a seamless interface for quick registration or login. This strategic approach aims to attract new users through effective advertising and organic word-of-mouth referrals.
+  The landing page is designed with a simplified user experience in mind, offering an uncluttered interface for quick registration or login. The strategic approach aims to attract users through advertising and organic word-of-mouth referrals.
 
   ![enter image description here](#)
 
@@ -68,6 +68,22 @@ Public transportation is a vital part of many communities but can often be unrel
 
 - **Performance Analytics**  
   Users can generate graphs and tables to analyze the performance of their bus routes over specified time periods, offering insights into service reliability and trends.
+
+## Agile
+
+For FudgeBuses, I used Agile planning to stay organized throughout the project. GitHub Projects was a helpful tool where I could create tasks, boards, and milestones.
+
+[FudgeBuses project Board](https://github.com/users/chuckydillo/projects/8/views/1)
+
+### MoSCoW Prioritization
+I followed the MoSCoW Prioritization method to decide what features were most important for FudgeBuses which i applied to labels in the user stories:
+
+- **Must Haves**: These were the essential features that had to be completed first. Finishing the "must haves" allowed me to create a basic, working version of the app (MVP).
+- **Should Haves**: These features were important but not critical at first. They could wait until after the "must haves" were done.
+- **Could Haves**: Nice-to-have features, which would be great if time allowed after the higher priority work was finished.
+- **Won't Haves**: These were features that didn’t fit the project right now or were low priority for this version.
+
+Using this method helped keep me focused on what mattered most during development.
 
 
 ## Testing 
