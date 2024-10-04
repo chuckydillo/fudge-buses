@@ -13,32 +13,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="">
-        <h1>About Fudge Buses</h1>
-        <p>Welcome to Fudge Buses! My goal is to provide a reliable platform for users to report and track bad bus services that are consistently late or canceled. I understand how frustrating it can be to depend on public transport, especially when buses fail to arrive on time or are canceled without notice.</p>
-    
+    <div class="about content">
+        <h1>About FudgeBuses</h1>
+        <p>Welcome to FudgeBuses! My goal is to provide a reliable platform for users to report and track bad bus services that are consistently late or canceled. I understand how frustrating it can be to depend on public transport, especially when buses fail to arrive on time or are canceled without notice.</p>
+        
         <h2>My Mission</h2>
-        <p>My mission with Fudge Buses is to empower users by giving them a voice to report their experiences with bus services. By collecting and sharing these reports, I aim to create a transparent environment where users can make informed decisions about their travel options. This app is designed to:</p>
+        <p>My mission with FudgeBuses is to empower users by giving them a voice to report their experiences with bus services. By collecting and sharing these reports, I aim to create a transparent environment where users can make informed decisions about their travel options. This app is designed to:</p>
         <ul>
             <li>Enable users to easily report late or canceled bus services.</li>
             <li>Provide a historical overview of bus service performance in your area.</li>
             <li>Allow users to view reports submitted by others, helping everyone stay informed.</li>
             <li>Encourage bus companies to improve their services through community feedback.</li>
         </ul>
-    
+        
         <h2>Why Track Bus Services?</h2>
-        <p>Public transportation is a vital part of many communities, but it can often be unreliable. Tracking bus services with Fudge Buses helps:</p>
+        <p>Public transportation is a vital part of many communities, but it can often be unreliable. Tracking bus services with FudgeBuses helps:</p>
         <ul>
             <li>Identify patterns in service disruptions.</li>
             <li>Improve accountability for bus companies.</li>
             <li>Help commuters find alternative travel options when needed.</li>
         </ul>
-    
+        
         <h2>Join Me!</h2>
-        <p>I invite you to join my community of commuters using Fudge Buses! Your feedback is invaluable in helping me build a better bus service experience. Together, we can make a difference in our public transport system.</p>
+        <p>I invite you to join my community of commuters using FudgeBuses! Your feedback is invaluable in helping me build a better bus service experience. Together, we can make a difference in our public transport system.</p>
         
         <h2>Contact Me</h2>
         <p>If you have any questions or suggestions, please feel free to <a href="">contact me</a>.</p>
+        
+
+        <p class="titillium-web-regular-italic">Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+        <p class="titillium-web-regular-italic"><a href="{% url 'home' %}">Take me back home</a>.</p>
     </div>
 </body>
 </html>
