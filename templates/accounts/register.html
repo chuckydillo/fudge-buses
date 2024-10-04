@@ -11,12 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2>Register</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
-    <p><a href="{% url 'home' %}">Take me back home</a>.</p>
+    <div class="container register">
+        <h2>Register</h2>
+        <form method="post" class="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+        <p><a href="{% url 'home' %}">Take me back home</a>.</p>
+    </div>
 </body>
 </html>

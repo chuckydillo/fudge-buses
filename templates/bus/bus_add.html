@@ -5,7 +5,7 @@
 {% block title %}Admin add bus{% endblock %}
 
 {% block content %}
-<form method="POST" id="busAddForm">
+<form class = "grid-container" method="POST" id="busAddForm">
     {% csrf_token %}
     {{ bus_form.as_p }}
 
