@@ -14,7 +14,45 @@ Public transportation is a vital part of many communities but can often be unrel
 
 ## User Experience Design 
 
+### User Stories
 
+- **As a user, I can create an account so that I can report buses and keep track of my regular bus routes.**
+  - AC1: Account creation page is available.
+  - AC2: Data required for account creation includes:
+    - Forename
+    - Surname
+    - Age
+    - Email
+    - Password
+  - AC3: Review and confirm data before submitting.
+
+- **As a user, I can login to my account.**
+  - AC1: A way to login to the account is provided.
+
+- **As a user, I can have a dedicated homepage with a quick view of personalized information.**
+  - AC1: When accessing the site after being logged in, the user's homepage displays relevant information about their bus routes.
+
+- **As a user, I can fill in a form to report buses.**
+  - AC1: The form should include the following information:
+    - Bus Company
+    - Bus Number
+    - Route (more than 1 route per bus number)
+    - Location
+    - Time
+    - Status:
+      - On time
+      - Late
+      - Cancelled (If reported cancelled on official sources)
+      - No show (Status not reported in official sources)
+  - AC2: Page to confirm information is correct before submission.
+  - AC3: Submit confirmation page.
+
+- **As a user, I can edit and delete my prior reports so that I can fix mistakes.**
+  - AC1: Ability for the user to edit records.
+  - AC2: Ability for the user to delete records.
+
+- **As a user, I can logout.**
+  - AC1: A way to logout of the account is provided.
 
 ## Features 
 
@@ -171,30 +209,8 @@ I would like to acknowledge the following resources and tools that contributed s
 Used for editing and formatting the markdown in the README and documentation:  
 [StackEdit](https://stackedit.io/)
 
-- **Prior Students**  
+- **Prior Student Projects**  
   Used for looking at examples of how prior projects were done in the past, and their scope:  
   [Kieran's CI Capstone Project](https://github.com/doctypeKieran/ci-capstone-project)  
   [Rachbry's Django Cookbook](https://github.com/rachbry/recipme-django-cookbook)  
   [Hibo Ibrahim's The Book Booth](https://github.com/hiboibrahim/thebookbooth1)
-
-
-
-
-
-## Other General Project Advice
-
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
-
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
-
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
-
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
-
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
-
