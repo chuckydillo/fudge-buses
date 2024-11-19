@@ -35,6 +35,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "8000-chuckydillo-fudgebuses-ch6b2s6etz8.ws.codeinstitute-ide.net",
     "fudgebuses-2818f2a44822.herokuapp.com",
+    "8000-chuckydillo-fudgebuses-m5kzmofyrgh.ws.codeinstitute-ide.net",
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
@@ -57,7 +58,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'fudge',
-
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
