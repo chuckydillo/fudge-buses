@@ -1,7 +1,10 @@
 {% load static %}
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fudge Buses</title>
@@ -11,19 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container"><!--Landing page guest menu-->
+    <div class="container list-group"><!--Landing page guest menu-->
         <H1>FudgeBuses</H1>
-        <ul class="main">
-            <li>
-                <a class="li-landing" href="{% url 'login' %}"><span>Login</span></a>
-            </li>
-            <li>
-                <a class="li-landing" href="{% url 'register' %}"><span>Create Account</span></a>
-            </li>
-            <li>
-                <a class="li-landing" href="{% url 'about' %}"><span>About</span></a>
-            </li>
-        </ul>
+        <div>
+            <a class="list-group-item list-group-item-action landing-menu-buttons" href="{% url 'login' %}"><span>Login</span></a>
+            <a class="list-group-item list-group-item-action landing-menu-buttons" href="{% url 'register' %}"><span>Create Account</span></a>
+            <a class="list-group-item list-group-item-action landing-menu-buttons" href="{% url 'about' %}"><span>About</span></a>
+        </div>
+
     </div>
 </body>
 </html>
