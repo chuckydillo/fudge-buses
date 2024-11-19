@@ -5,25 +5,26 @@
 {% block title %}Edit Bus Info{% endblock %}
 
 {% block content %}
-<h1>Edit Bus Information</h1>
+<div class="container">
+    <h1>Edit Bus Information</h1>
+    <form method="POST" id="busEditForm"></form>
+        {% csrf_token %}
+        {{ bus_form.as_p }}
 
-<form method="POST" id="busEditForm">
-    {% csrf_token %}
-    {{ bus_form.as_p }}
+        <div id="busStopFormsetContainer">
+            {{ formset.management_form }}
+            {% for form in formset %}
+                <div class="formset_row" data-form-index="{{ forloop.counter0 }}">
+                    {{ form.as_p }} 
+                    <button type="button" class="deleteBusStopButton">Delete</button>
+                </div>
+            {% endfor %}
+        </div>
 
-    <div id="busStopFormsetContainer">
-        {{ formset.management_form }}
-        {% for form in formset %}
-            <div class="formset_row" data-form-index="{{ forloop.counter0 }}">
-                {{ form.as_p }} 
-                <button type="button" class="deleteBusStopButton">Delete</button>
-            </div>
-        {% endfor %}
-    </div>
-
-    <button type="button" id="addBusStopButton">Add Bus Stop</button>
-    <button type="submit">Submit</button>
-</form>
+        <button type="button" id="addBusStopButton">Add Bus Stop</button>
+        <button type="submit">Submit</button>
+    </form>    
+</div>
 
 <script>
     // Script to add a new bus stop form
