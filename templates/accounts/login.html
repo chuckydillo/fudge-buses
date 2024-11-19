@@ -1,7 +1,10 @@
 {% load static %}
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
@@ -14,7 +17,7 @@
     <div class="container">
         <h2>Login</h2>
         <p>Sign in to your account.</p>
-        <div class="form-container">
+        <div>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
