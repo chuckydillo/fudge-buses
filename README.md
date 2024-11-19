@@ -53,6 +53,17 @@ Public transportation is a vital part of many communities but can often be unrel
 
 - **As a user, I can logout.**
   - AC1: A way to logout of the account is provided.
+## Wireframes
+### Landing Page
+![Landing Page](documentation/wireframes/fb-landing.png)
+### Login Page
+![Login Page](documentation/wireframes/fb-login.png)
+### Profile Page
+![Profile Page](documentation/wireframes/fb-profile.png)
+### Bus Report Page
+![Bus Report Page](documentation/wireframes/fb-report.png)
+### Account Creation Page
+![Account Creation Page](documentation/wireframes/fb-signup.png)
 
 ## Features 
 
